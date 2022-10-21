@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/world/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/world/Obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/world/Body.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="SphereMesh" id=2]
 
 [node name="World" type="Spatial"]
 
@@ -32,3 +36,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56795, 0.306048, -1.38251 )
 
 [node name="StaticBody" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.14609, 0.865826, -8.7174 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11396, 0 )
+mesh = SubResource( 2 )
+material/0 = null
