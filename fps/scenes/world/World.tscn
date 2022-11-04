@@ -1,15 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/world/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/world/Obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/world/Body.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/world/World.gd" type="Script" id=5]
+[ext_resource path="res://scenes/world/area.gd" type="Script" id=6]
 
 [sub_resource type="SphereShape" id=1]
 
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.0235294, 0.419608, 0.0980392, 1 )
+
 [sub_resource type="SphereMesh" id=2]
+material = SubResource( 3 )
+radius = 0.5
+height = 1.0
 
 [node name="World" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 transform = Transform( 50, 0, 0, 0, 0.2, 0, 0, 0, 50, 0, 0, 0 )
@@ -34,10 +42,9 @@ transform = Transform( 3.1822, 0, -1.36621, 0, 4.51415, 0, 5.40034, 0, 0.651076,
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56795, 0.306048, -1.38251 )
 
-[node name="StaticBody" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.14609, 0.865826, -8.7174 )
-
 [node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09334, 0, 0 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 1 )
@@ -46,3 +53,18 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11396, 0 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="Area2" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92884, 0, -4.91292 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11396, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[connection signal="body_entered" from="Area" to="Area" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="Area2" to="Area2" method="_on_Area_body_entered"]
