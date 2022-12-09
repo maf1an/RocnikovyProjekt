@@ -1,29 +1,94 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
+[ext_resource path="res://data/ybot.gltf" type="PackedScene" id=1]
+[ext_resource path="res://script/Player.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleMesh" id=1]
-radius = 0.5
-mid_height = 0.8
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Breathing Idle (3)-loop"
 
-[sub_resource type="CapsuleShape" id=2]
-radius = 0.5
-height = 0.8
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Sprint (1)-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Running Jump (4)-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Jumping (4)-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Running (10)-loop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+advance_condition = "jump"
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+advance_condition = "jump"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id=1]
+states/Idle/node = SubResource( 4 )
+states/Idle/position = Vector2( 262, 34 )
+states/Running/node = SubResource( 5 )
+states/Running/position = Vector2( 490, 34 )
+states/Runningjump/node = SubResource( 6 )
+states/Runningjump/position = Vector2( 761, 42 )
+states/Standingjump/node = SubResource( 7 )
+states/Standingjump/position = Vector2( 94, 128 )
+states/Walking/node = SubResource( 8 )
+states/Walking/position = Vector2( 403, 159 )
+transitions = [ "Idle", "Running", SubResource( 9 ), "Running", "Idle", SubResource( 10 ), "Idle", "Walking", SubResource( 11 ), "Walking", "Idle", SubResource( 12 ), "Running", "Walking", SubResource( 13 ), "Walking", "Running", SubResource( 14 ), "Running", "Runningjump", SubResource( 15 ), "Runningjump", "Running", SubResource( 16 ), "Standingjump", "Idle", SubResource( 17 ), "Idle", "Standingjump", SubResource( 18 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.41201
 
 [node name="Player" type="KinematicBody"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+animationtree = NodePath("AnimationTree")
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.9, 0 )
-mesh = SubResource( 1 )
-material/0 = null
+[node name="ybot" parent="." instance=ExtResource( 1 )]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 1 )
+anim_player = NodePath("../ybot/AnimationPlayer")
+active = true
+root_motion_track = NodePath("Armature/Skeleton:RootMotion")
+parameters/playback = SubResource( 2 )
+parameters/conditions/jump = false
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.9, 0 )
-shape = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.780108, 0.146985 )
+shape = SubResource( 3 )
 
-[node name="CamRoot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71412, 1.80477 )
-
-[node name="Camera" type="Camera" parent="CamRoot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684623, 2.30662 )
+[editable path="ybot"]
