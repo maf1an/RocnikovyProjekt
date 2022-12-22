@@ -13,7 +13,6 @@ func _ready():
 		setup.look_target = Vector3(0,0, 100.0)
 	setup.pitch_limit.x = deg2rad(setup.pitch_limit.x)
 	setup.pitch_limit.y = deg2rad(setup.pitch_limit.y)
-	
 func _process(delta):
 	self.transform.origin = target.transform.origin + setup.anchor_offset
 	var target_offset = setup.target_offset

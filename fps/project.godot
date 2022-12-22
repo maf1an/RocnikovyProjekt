@@ -13,15 +13,25 @@ _global_script_classes=[ {
 "class": "CameraData",
 "language": "GDScript",
 "path": "res://script/CameraData.gd"
+}, {
+"base": "Spatial",
+"class": "world",
+"language": "GDScript",
+"path": "res://scenes/world/World.gd"
 } ]
 _global_script_class_icons={
-"CameraData": ""
+"CameraData": "",
+"world": ""
 }
 
 [application]
 
 config/name="fps"
 config/icon="res://icon.png"
+
+[autoload]
+
+premenne="*res://script/Premenne.gd"
 
 [input]
 
