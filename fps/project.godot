@@ -13,15 +13,9 @@ _global_script_classes=[ {
 "class": "CameraData",
 "language": "GDScript",
 "path": "res://script/CameraData.gd"
-}, {
-"base": "Spatial",
-"class": "world",
-"language": "GDScript",
-"path": "res://scenes/world/World.gd"
 } ]
 _global_script_class_icons={
-"CameraData": "",
-"world": ""
+"CameraData": ""
 }
 
 [application]

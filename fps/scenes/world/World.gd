@@ -1,7 +1,4 @@
 extends Spatial
-class_name world
-onready var a = 0
 func _ready():
+	#$Camera/HUD/ColorRect/Label.text = str(premenne.a)
 	pass
-func Add():
-	a = a +1
