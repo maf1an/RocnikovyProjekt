@@ -10,6 +10,7 @@ var _last_pos
 var _pressed : bool = false
 
 func _physics_process(delta):
+	
 	var root_motion : Transform = _anime_tree.get_root_motion_transform()
 	var v = root_motion.origin / delta
 	if is_on_floor():
@@ -54,5 +55,6 @@ func _physics_process(delta):
 		
 	_anime_tree["parameters/conditions/jump"] = Input.is_action_pressed("jump")
 	move_and_slide(v,Vector3.UP)
+	
 	
 

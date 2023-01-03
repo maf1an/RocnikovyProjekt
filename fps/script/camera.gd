@@ -7,6 +7,7 @@ var _pressed := false
 var _last_pos
 
 func _ready():
+	
 	if setup.target_offset == Vector3.ZERO:
 		setup.target_offset = self.transform.origin - target.transform.origin - setup.anchor_offset
 	if setup.look_target == Vector3.ZERO:
