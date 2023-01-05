@@ -44,7 +44,7 @@ shape = SubResource( 5 )
 [node name="Obstacles" type="Spatial" parent="."]
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource( 2 )]
-transform = Transform( 3.70159, 0, 0, 0, 0.481484, 0, 0, 0, 1.1849, 6.59129, 0.226555, -4.35843 )
+transform = Transform( 14.1053, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.591, 1, -9.121 )
 
 [node name="Obstacle5" parent="Obstacles" instance=ExtResource( 2 )]
 transform = Transform( 3.66493, 0, 0, 0, 1, 0, 0, 0, 1.31503, 19.4127, 2.56296, 17.3566 )
@@ -53,16 +53,19 @@ transform = Transform( 3.66493, 0, 0, 0, 1, 0, 0, 0, 1.31503, 19.4127, 2.56296, 
 transform = Transform( 4.39541, 0, 0, 0, 1, 0, 0, 0, 1, 9.26075, 1.43249, 2.43182 )
 
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource( 2 )]
-transform = Transform( 2.0581, 0, -0.883602, 0, 1, 0, 3.8838, 0, 0.468238, 22.2562, 1.43249, 7.99517 )
+transform = Transform( -0.0372848, 0, -0.999964, 0, 1, 0, 4.39526, 0, -0.00848235, 21.2863, 1, -4.90555 )
 
 [node name="Obstacle4" parent="Obstacles" instance=ExtResource( 2 )]
 transform = Transform( 3.1822, 0, -1.36621, 0, 4.51415, 0, 5.40034, 0, 0.651076, 7.50772, 1.43249, 20.554 )
 
 [node name="Obstacle6" parent="Obstacles" instance=ExtResource( 2 )]
-transform = Transform( 1.7431, 0, 0, 0, 0.406349, 0, 0, 0, 1, -2.16432, 0.748948, -5.52549 )
+transform = Transform( 1.7431, 0, 0, 0, 0.406349, 0, 0, 0, 1, -2.16432, 0.748948, -11.3351 )
 
 [node name="Obstacle7" parent="Obstacles" instance=ExtResource( 2 )]
-transform = Transform( -0.00742308, 0, 0.999991, 0, 0.406349, 0, -1.74309, 0, -0.00425854, -7.40275, 1.26024, -3.96054 )
+transform = Transform( -0.00742308, 0, 0.999991, 0, 0.406349, 0, -1.74309, 0, -0.00425854, -7.40275, 1.26024, -13.2187 )
+
+[node name="Obstacle8" parent="Obstacles" instance=ExtResource( 2 )]
+transform = Transform( 13.6876, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.591, 1, -0.508204 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.98147, 6.21565e-08, 0.191614, 0.0115576, 0.998179, 0.0591992, -0.191265, 0.0603168, -0.979683, 17.4591, 2.63187, -6.75925 )
@@ -81,19 +84,11 @@ transform = Transform( 50, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0 )
 shape = SubResource( 9 )
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
-rect_pivot_offset = Vector2( -167, -457 )
+rect_pivot_offset = Vector2( -283, -295 )
 script = ExtResource( 11 )
 
-[node name="apple" parent="HUD" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419785, 1, 4.35017 )
-script = ExtResource( 8 )
-
-[node name="CollisionShape" type="CollisionShape" parent="HUD/apple"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682764, 0 )
-shape = SubResource( 8 )
-
 [node name="apple2" parent="HUD" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0073, 1, 2.66076 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.76718, 1, -5.58765 )
 script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HUD/apple2"]
@@ -101,7 +96,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682764, 0 )
 shape = SubResource( 8 )
 
 [node name="apple3" parent="HUD" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.20297, 0.906007, -4.56743 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66975, 0.906007, -4.56743 )
 script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HUD/apple3"]
@@ -109,19 +104,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682764, 0 )
 shape = SubResource( 8 )
 
 [node name="apple4" parent="HUD" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94628, 1, -1.65634 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.897, 1, -5.58765 )
 script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HUD/apple4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02229, 1.04113, -1.2175 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682764, 0 )
 shape = SubResource( 8 )
 
 [node name="Area" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.774738, 0, -4.71562 )
+transform = Transform( 0.461351, 0, 0, 0, 1, 0, 0, 0, 3.9683, 4.54141, 0, -4.71562 )
 script = ExtResource( 13 )
 
-[connection signal="body_entered" from="HUD/apple" to="HUD/apple" method="_on_apple_body_entered"]
-[connection signal="pocet" from="HUD/apple" to="HUD" method="_on_apple_pocet"]
 [connection signal="body_entered" from="HUD/apple2" to="HUD/apple2" method="_on_apple_body_entered"]
 [connection signal="pocet" from="HUD/apple2" to="HUD" method="_on_apple_pocet"]
 [connection signal="body_entered" from="HUD/apple3" to="HUD/apple3" method="_on_apple_body_entered"]

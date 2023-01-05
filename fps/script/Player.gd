@@ -10,7 +10,6 @@ var _last_pos
 var _pressed : bool = false
 
 func _physics_process(delta):
-	
 	var root_motion : Transform = _anime_tree.get_root_motion_transform()
 	var v = root_motion.origin / delta
 	if is_on_floor():
@@ -41,7 +40,6 @@ func _physics_process(delta):
 		var phi : float = desired_heading_2d.angle_to(player_heading_2d)
 		phi = phi * delta * 3.0
 		self.rotation.y += phi
-		
 		v = v.rotated(Vector3.UP, self.rotation.y)
 		
 		if Input.is_action_pressed("sprint"):
@@ -51,10 +49,5 @@ func _physics_process(delta):
 	else:
 		_anime_tree["parameters/playback"].travel("Idle")
 		v = v.rotated(Vector3.UP, self.rotation.y)
-		
-		
 	_anime_tree["parameters/conditions/jump"] = Input.is_action_pressed("jump")
 	move_and_slide(v,Vector3.UP)
-	
-	
-
