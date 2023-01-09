@@ -31,8 +31,9 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+margin_top = 19.0
 margin_right = 238.0
-margin_bottom = 205.0
+margin_bottom = 224.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
@@ -47,11 +48,10 @@ w + shift + space : sprinting jump
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
-margin_left = 60.0
-margin_top = 209.0
-margin_right = 172.0
-margin_bottom = 315.0
+[node name="Button" type="Button" parent="ColorRect"]
+margin_right = 112.0
+margin_bottom = 106.0
+rect_scale = Vector2( 0.96, 1 )
 icon = ExtResource( 1 )
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
