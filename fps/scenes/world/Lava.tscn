@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/waterways/river_manager.gd" type="Script" id=1]
+[ext_resource path="res://addons/waterways/shaders/lava.shader" type="Shader" id=2]
+[ext_resource path="res://addons/waterways/textures/lava_normal_bump.png" type="Texture" id=3]
+[ext_resource path="res://addons/waterways/textures/lava_emission.png" type="Texture" id=4]
+
+[sub_resource type="Curve3D" id=1]
+bake_interval = 0.05
+_data = {
+"points": PoolVector3Array( 0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/normal_scale = 1.0
+shader_param/uv_scale = Vector3( 1, 1, 1 )
+shader_param/roughness = 0.7
+shader_param/edge_fade = 0.25
+shader_param/emission_color = Transform( 1, 1, 0, 1, 0.5, 0, 1, 0.5, 0, 0, 0, 0 )
+shader_param/emission_energy = 4.0
+shader_param/emission_depth = 3.0
+shader_param/emission_depth_curve = 0.25
+shader_param/flow_speed = 1.0
+shader_param/flow_base = 0.0
+shader_param/flow_steepness = 2.0
+shader_param/flow_distance = 1.0
+shader_param/flow_pressure = 1.0
+shader_param/flow_max = 4.0
+shader_param/i_valid_flowmap = false
+shader_param/i_uv2_sides = 0
+shader_param/normal_bump_texture = ExtResource( 3 )
+shader_param/emission_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.248915, 1 )
+
+[node name="Area" type="Area"]
+
+[node name="River" type="Spatial" parent="."]
+script = ExtResource( 1 )
+shape_step_length_divs = 1
+shape_step_width_divs = 1
+shape_smoothness = 0.5
+mat_shader_type = 1
+mat_custom_shader = null
+mat_normal_scale = 1.0
+mat_normal_bump_texture = ExtResource( 3 )
+mat_uv_scale = Vector3( 1, 1, 1 )
+mat_roughness = 0.7
+mat_edge_fade = 0.25
+mat_emission_color = Transform( 1, 1, 0, 1, 0.5, 0, 1, 0.5, 0, 0, 0, 0 )
+mat_emission_energy = 4.0
+mat_emission_depth = 3.0
+mat_emission_depth_curve = 0.25
+mat_emission_texture = ExtResource( 4 )
+mat_flow_speed = 1.0
+mat_flow_base = 0.0
+mat_flow_steepness = 2.0
+mat_flow_distance = 1.0
+mat_flow_pressure = 1.0
+mat_flow_max = 4.0
+lod_lod0_distance = 50.0
+baking_resolution = 2
+baking_raycast_distance = 10.0
+baking_raycast_layers = 1
+baking_dilate = 0.6
+baking_flowmap_blur = 0.04
+baking_foam_cutoff = 0.9
+baking_foam_offset = 0.1
+baking_foam_blur = 0.02
+curve = SubResource( 1 )
+widths = [ 1.0, 1.0 ]
+valid_flowmap = false
+flow_foam_noise = null
+dist_pressure = null
+_material = SubResource( 2 )
+_selected_shader = 0
+_uv2_sides = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.285951, 0, 0, 0, 0.511838, 0, -0.0440222, 0.508466 )
+shape = SubResource( 3 )
