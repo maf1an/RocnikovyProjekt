@@ -1,9 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Rock035_2K-PNG/wildtextures_big-stone-wall-4k-480x480.jpg" type="Texture" id=1]
 
 [sub_resource type="CubeMesh" id=4]
 
+[sub_resource type="Skin" id=6]
+
 [sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0, 0.101961, 0.94902, 1 )
+flags_world_triplanar = true
+flags_fixed_size = true
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 3.03
+uv2_triplanar = true
+uv2_triplanar_sharpness = 28.8
 
 [sub_resource type="BoxShape" id=3]
 
@@ -11,6 +21,7 @@ albedo_color = Color( 0, 0.101961, 0.94902, 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 4 )
+skin = SubResource( 6 )
 material/0 = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

@@ -29,7 +29,7 @@ premenne="*res://script/Premenne.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/waterways/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [input]
 
