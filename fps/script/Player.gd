@@ -23,13 +23,13 @@ func _physics_process(delta):
 #		_anime_tree["parameters/playback"].travel("Idle")
 	var dir : Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("forward"):
-		dir.z += 1.0
+		dir.z += 0.1
 	if Input.is_action_pressed("backward"):
-		dir.z -= 1.0
+		dir.z -= 0.1
 	if Input.is_action_pressed("left"):
-		dir.x += 1.0
+		dir.x += 0.1
 	if Input.is_action_pressed("right"):
-		dir.x -= 1.0
+		dir.x -= 0.1
 		
 	if dir.length_squared() > 0.01:
 		dir = dir.rotated(Vector3.UP, camera.setup.rotation.y)
