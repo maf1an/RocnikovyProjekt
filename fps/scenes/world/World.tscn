@@ -73,32 +73,47 @@ shape = SubResource( 5 )
 [node name="Obstacles" type="Spatial" parent="."]
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource( 3 )]
-transform = Transform( 14.1053, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.591, 1, -9.121 )
+transform = Transform( 14.1053, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.591, 1, -11.3912 )
 
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource( 3 )]
-transform = Transform( -0.0372848, 0, -0.999964, 0, 1, 0, 4.39526, 0, -0.00848235, 21.2863, 1, -4.90555 )
-
-[node name="Obstacle6" parent="Obstacles" instance=ExtResource( 3 )]
-transform = Transform( 1.7431, 0, 0, 0, 0.406349, 0, 0, 0, 1, -2.16432, 0.748948, -11.3351 )
-
-[node name="Obstacle7" parent="Obstacles" instance=ExtResource( 3 )]
-transform = Transform( -0.00742308, 0, 0.999991, 0, 0.406349, 0, -1.74309, 0, -0.00425854, -7.40275, 1.26024, -13.2187 )
+transform = Transform( -0.0372848, 0, -0.999964, 0, 1, 0, 5.10317, 0, -0.00984853, 21.2863, 1, -5.5649 )
 
 [node name="Obstacle8" parent="Obstacles" instance=ExtResource( 3 )]
-transform = Transform( 13.6876, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.591, 1, -0.508204 )
+transform = Transform( 13.6876, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.591, 1, 0.389411 )
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( 5.15377, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, -12.031, 1, 0.378549 )
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( -2.25278e-07, 0, 1.1849, 0, 1.03197, 0, -22.4225, 0, -2.25339e-07, -18.1663, 1, -22.3347 )
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( -2.25278e-07, 0, 1.1849, 0, 1.03197, 0, -5.15377, 0, -5.17936e-08, -8.54232, 1, -15.3679 )
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( 20.111, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 0.679741, 1, -45.0096 )
+
+[node name="Obstacle7" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( -2.25278e-07, 0, 1.1849, 0, 1.03197, 0, -6.70733, 0, -6.74065e-08, -8.54767, 1, -26.9982 )
+
+[node name="Obstacle9" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( 14.4945, 0, 0, 0, 1.03197, 0, 0, 0, 1.1849, 6.97587, 1, -32.5338 )
+
+[node name="Obstacle10" parent="Obstacles" instance=ExtResource( 3 )]
+transform = Transform( -0.0372848, 0, -0.999964, 0, 1, 0, 5.10317, 0, -0.00984853, 21.2863, 1, -38.6829 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.98147, 6.21565e-08, 0.191614, 0.0115576, 0.998179, 0.0591992, -0.191265, 0.0603168, -0.979683, 17.4591, 2.63187, -6.75925 )
+transform = Transform( -0.046818, -0.058598, 0.997183, 0.0115576, 0.998179, 0.0591992, -0.998837, 0.0142966, -0.0460555, 18.3456, 2.8654, -5.0487 )
 script = ExtResource( 12 )
 target = NodePath("../Player")
 setup = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4129, 0.410998, -3.68483 )
+transform = Transform( 0.0765103, 0, -0.997069, 0, 1, 0, 0.997069, 0, 0.0765103, 15.2152, 0.410998, -5.26327 )
 camera = NodePath("../Camera")
 
 [node name="ground_grass" parent="." instance=ExtResource( 6 )]
-transform = Transform( 50, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0 )
+transform = Transform( 100, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ground_grass"]
 shape = SubResource( 9 )
@@ -132,7 +147,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682764, 0 )
 shape = SubResource( 8 )
 
 [node name="Lava" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.719983, 0, 0, 0, 1, 0, 0, 0, 6.25603, 6.65463, 0.114078, -8.18562 )
+transform = Transform( 0.778664, 0, 0, 0, 1.0815, 0, 0, 0, 11.4884, 6.65463, 0.114078, -11.3627 )
 script = ExtResource( 9 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -147,6 +162,18 @@ margin_right = 112.0
 margin_bottom = 106.0
 icon = ExtResource( 8 )
 
+[node name="Lava2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.778664, 0, 0, 0, 1.0815, 0, 0, 0, 11.4884, -6.7062, 0.114078, -11.3627 )
+script = ExtResource( 9 )
+
+[node name="Lava3" parent="." instance=ExtResource( 2 )]
+transform = Transform( -3.40365e-08, 0, 11.4884, 0, 1.0815, 0, -0.778664, 0, -5.02175e-07, -19.6021, 0.114078, -20.4162 )
+script = ExtResource( 9 )
+
+[node name="Lava4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.778664, 0, 0, 0, 1.0815, 0, 0, 0, 11.4884, -7.77582, 0.114078, -44.9729 )
+script = ExtResource( 9 )
+
 [connection signal="body_entered" from="HUD/apple2" to="HUD/apple2" method="_on_apple_body_entered"]
 [connection signal="pocet" from="HUD/apple2" to="HUD" method="_on_apple_pocet"]
 [connection signal="body_entered" from="HUD/apple3" to="HUD/apple3" method="_on_apple_body_entered"]
@@ -155,5 +182,8 @@ icon = ExtResource( 8 )
 [connection signal="pocet" from="HUD/apple4" to="HUD" method="_on_apple_pocet"]
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="body_entered" from="Lava2" to="Lava2" method="_on_Lava_body_entered"]
+[connection signal="body_entered" from="Lava3" to="Lava3" method="_on_Lava_body_entered"]
+[connection signal="body_entered" from="Lava4" to="Lava4" method="_on_Lava_body_entered"]
 
 [editable path="HUD"]
