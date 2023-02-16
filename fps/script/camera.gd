@@ -27,7 +27,16 @@ func _process(delta):
 	self.transform.origin += target_offset
 	self.look_at(look_at, Vector3.UP)
 	collide()
+	if("presiel" == true):
+func _on_Area_body_entered(body):
+	var rotation = 0
+	emit_signal("presiel", true)
 	
+#func _process(delta):
+#    rotation += delta * 180 # rotate 180 degrees per second
+#    rotation = rotation % 360 # keep rotation within 0-360 range
+#    look_at(Vector3(0, 0, 0))
+#    rotate_y(rotation)
 	
 func _unhandled_input(event):
 	if event is InputEventScreenTouch and event.pressed == true:
@@ -51,3 +60,6 @@ func collide():
 	if not col.empty():
 		self.transform.origin = col.position
 	
+
+
+
