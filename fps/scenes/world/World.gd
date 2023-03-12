@@ -12,6 +12,3 @@ func _on_Button_pressed():
 	
 	queue_free()
 	get_tree().change_scene("res://scenes/world/Menu.tscn")
-
-
-fun
