@@ -141,7 +141,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682764, 0 )
 shape = SubResource( 8 )
 
 [node name="Lava" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.00362857, 0, -11.4883, 0, 1.0815, 0, 0.778655, 0, 0.0535356, 25.0664, 0.114078, 4.73387 )
+transform = Transform( 0.00362857, 0, -11.4883, 0, 1.0815, 0, 0.778655, 0, 0.0535356, 37.8402, 0.114078, 4.73387 )
 script = ExtResource( 9 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -157,15 +157,15 @@ margin_bottom = 106.0
 icon = ExtResource( 8 )
 
 [node name="Lava2" parent="." instance=ExtResource( 2 )]
-transform = Transform( -3.40365e-08, 0, 11.4884, 0, 1.0815, 0, -0.778664, 0, -5.02174e-07, 13.5585, 0.114078, 18.1673 )
+transform = Transform( -3.40365e-08, 0, 11.4884, 0, 1.0815, 0, -0.778664, 0, -5.02174e-07, 31.0664, 0.114078, 18.1673 )
 script = ExtResource( 9 )
 
 [node name="Lava3" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.02199e-08, 0, 13.5755, 0, 1.0815, 0, -0.778664, 0, -5.02175e-07, -24.5626, 0.114078, 18.7582 )
+transform = Transform( -4.02199e-08, 0, 13.5755, 0, 1.0815, 0, -0.778664, 0, -5.02175e-07, -40.9778, 0.114078, 18.7582 )
 script = ExtResource( 9 )
 
 [node name="Lava4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.778664, 0, 0, 0, 1.0815, 0, 0, 0, 11.4884, 3.77475, 0.114078, 18.9799 )
+transform = Transform( 0.778664, 0, 0, 0, 1.0815, 0, 0, 0, 11.4884, 3.77475, 0.114078, 5.94134 )
 script = ExtResource( 9 )
 
 [node name="Area" parent="." instance=ExtResource( 15 )]

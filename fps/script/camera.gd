@@ -18,7 +18,6 @@ func _ready():
 		setup.look_target = Vector3(0,0, 100.0)
 	setup.pitch_limit.x = deg2rad(setup.pitch_limit.x)
 	setup.pitch_limit.y = deg2rad(setup.pitch_limit.y)
-
 func _process(delta):
 	if rotate_around_player:
 		var x = player.transform.origin.x + radius * cos(angle)
@@ -48,7 +47,8 @@ func _process(delta):
 		collide()
 
 func _on_Area_body_entered(body):
-	rotate_around_player = true
+	if body.get_name()=="Player":
+		rotate_around_player = true
 
 func _on_Area_body_exited(body):
 	rotate_around_player = false
@@ -70,7 +70,7 @@ func _unhandled_input(event):
 
 func collide():
 	var start = target.transform.origin + setup.anchor_offset
-	var end = self.transform
+	var end = self.transform.origin
 	var space_state = get_world().direct_space_state
 	var col = space_state.intersect_ray(start, end)
 	if not col.empty():
