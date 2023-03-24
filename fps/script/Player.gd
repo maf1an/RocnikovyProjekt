@@ -52,3 +52,6 @@ func _physics_process(delta):
 			v = v.rotated(Vector3.UP, self.rotation.y)
 		_anime_tree["parameters/conditions/jump"] = Input.is_action_pressed("jump")
 		move_and_slide(v,Vector3.UP)
+	else:
+		_anime_tree["parameters/playback"].travel("Walking")
+		move_and_slide(Vector3(0,0,1))
