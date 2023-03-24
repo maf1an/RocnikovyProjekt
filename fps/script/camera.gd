@@ -25,7 +25,7 @@ func _process(delta):
 		var camera_pos = Vector3(x,player.transform.origin.y + 2, z)
 		look_at(player.transform.origin, Vector3(0,1,0))
 		transform.origin = camera_pos
-		angle += 0.05 * delta
+		angle += 0.5 * delta
 		if angle >= 2 * PI:
 			angle -= 2 * PI
 		elif angle < 0:
@@ -47,7 +47,7 @@ func _process(delta):
 		collide()
 
 func _on_Area_body_entered(body):
-	if body.get_name()=="Player":
+	if body.get_name() == "Player":
 		rotate_around_player = true
 
 func _on_Area_body_exited(body):
