@@ -9,19 +9,21 @@ var gravity = Vector3.ZERO
 var _last_pos
 var _pressed : bool = false
 var controller_enabled = true
+var target_pos = Vector3(-18, 0, -5)
+var move_speed = 2.0
+var target_reached = false
+
 func _physics_process(delta):
+	var v
 	if controller_enabled:
 		var root_motion : Transform = _anime_tree.get_root_motion_transform()
-		var v = root_motion.origin / delta
+		v = root_motion.origin / delta
 		if is_on_floor():
 			gravity = Vector3.ZERO
 		else:
 			gravity += Vector3(0.0,-0.983,0.0) * delta
 		v+=gravity
-#	if Input.is_action_pressed("ui_select"):
-#		_anime_tree["parameters/playback"].travel("Running")
-#	else:
-#		_anime_tree["parameters/playback"].travel("Idle")
+		
 		var dir : Vector3 = Vector3.ZERO
 		if Input.is_action_pressed("forward"):
 			dir.z += 0.1
@@ -54,4 +56,14 @@ func _physics_process(delta):
 		move_and_slide(v,Vector3.UP)
 	else:
 		_anime_tree["parameters/playback"].travel("Walking")
-		move_and_slide(Vector3(0,0,1))
+		var dist = self.global_transform.origin.distance_to(target_pos)
+		if dist > 1:
+			v = (target_pos - self.global_transform.origin).normalized() * move_speed
+			self.move_and_slide(v, Vector3.UP)
+			_anime_tree["parameters/playback"].travel("Walking")
+		else:
+			if not target_reached:
+				target_reached = true
+				self.rotation.y += deg2rad(180)
+			_anime_tree["parameters/playback"].travel("Idle")
+			_anime_tree["parameters/conditions/jump"] = false
