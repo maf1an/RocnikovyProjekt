@@ -39,7 +39,6 @@ func _physics_process(delta):
 		
 			var player_heading_2d := Vector2(self.transform.basis.z.x, self.transform.basis.z.z)
 			var desired_heading_2d := Vector2(dir.x, dir.z)
-		
 			var phi : float = desired_heading_2d.angle_to(player_heading_2d)
 			phi = phi * delta * 3.0
 			self.rotation.y += phi
@@ -57,7 +56,7 @@ func _physics_process(delta):
 	else:
 		_anime_tree["parameters/playback"].travel("Walking")
 		var dist = self.global_transform.origin.distance_to(target_pos)
-		if dist > 1:
+		if dist > 0.15:
 			v = (target_pos - self.global_transform.origin).normalized() * move_speed
 			self.move_and_slide(v, Vector3.UP)
 			_anime_tree["parameters/playback"].travel("Walking")

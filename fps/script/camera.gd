@@ -20,6 +20,7 @@ func _ready():
 	setup.pitch_limit.y = deg2rad(setup.pitch_limit.y)
 func _process(delta):
 	if rotate_around_player:
+		radius = 3.5
 		var x = player.transform.origin.x + radius * cos(angle)
 		var z = player.transform.origin.z + radius *sin(angle)
 		var camera_pos = Vector3(x,player.transform.origin.y + 2, z)
