@@ -31,6 +31,10 @@ premenne="*res://script/Premenne.gd"
 
 enabled=PoolStringArray(  )
 
+[global]
+
+display=false
+
 [input]
 
 backward={
